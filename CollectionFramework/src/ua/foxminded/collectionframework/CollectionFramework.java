@@ -13,8 +13,12 @@ public class CollectionFramework {
 		System.out.println((countUniqueChars((scannerForInput))));
 	}
 
-	public static int countUniqueChars(String str) {
-
+	public static String countUniqueChars(String str) {
+		
+		if (str == null) {
+		    throw new NullPointerException("Input string cannot be null");
+		  }
+		
 		Map<Character, Integer> charCounts = new HashMap<>();
 		 StringBuilder uniqueChars = new StringBuilder();
 		for (char c : str.toCharArray()) {
@@ -36,6 +40,6 @@ public class CollectionFramework {
 		}
 
 		System.out.print("Total unique characters:");
-		return charCounts.size();
+		return charCounts.size() + "";
 	}
 }
