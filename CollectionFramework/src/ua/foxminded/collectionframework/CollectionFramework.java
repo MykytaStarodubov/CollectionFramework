@@ -6,11 +6,27 @@ import java.util.Map;
 
 public class CollectionFramework {
 
+	 private static Map<String, String> cache = new HashMap<>();
 	public static void main(String[] args) {
 
 		Scanner scanner = new Scanner(System.in);
-		String scannerForInput = scanner.nextLine();
-		System.out.println((countUniqueChars((scannerForInput))));
+		
+		
+		 while (true) {
+	            String scannerForInput = scanner.nextLine();
+
+	          
+	            String count = cache.get(scannerForInput);
+	            if (count != null) {
+	                System.out.println(count);
+	            } else {
+	               
+	                count = countUniqueChars(scannerForInput);
+	                cache.put(scannerForInput, count);
+	                System.out.println(count);
+	            }
+		 }
+		
 	}
 
 	public static String countUniqueChars(String str) {
